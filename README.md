@@ -8,7 +8,7 @@ Protótipo mobile-first ultra-moderno e responsivo desenvolvido sob medida para 
 
 - **Cores Oficiais:** Verde Água / Tiffany (`#3ACDBB`) extraído diretamente da logo oficial da marca.
 - **Tipografia:**
-  - Slogan cursivo: **Ephesis** & **Birthstone Bounce** (*dondok store ♥ BY KAREN FERNANDES*)
+  - Slogan cursivo: **Ephesis** & **Birthstone Bounce** (*dondok store • BY KAREN FERNANDES*)
   - Títulos de coleção: **Syne**
   - Textos e legibilidade mobile: **Plus Jakarta Sans**
 - **Estilo:** Boutique minimalista, clean, sofisticado e otimizado para conversão no WhatsApp e Instagram.
