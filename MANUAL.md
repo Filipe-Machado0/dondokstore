@@ -1,110 +1,183 @@
-# Manual de Instruções: Catálogo Digital & Painel da Lojista
+# Manual Completo da Lojista: Painel Administrativo & Catálogo
 ## Dondok Store (Use DK) • Moda Feminina
 
----
-
-### 📖 Visão Geral do Sistema
-
-O **Catálogo Digital de Bolso** foi desenvolvido para funcionar como uma vitrine moderna e direta de conversão via WhatsApp e Instagram para a **Dondok Store (Use DK)**.
-
-O sistema conta com dois ambientes em um só aplicativo:
-1. **Visão da Cliente:** Vitrine fluida, responsiva para celular, com filtros, stories, sacola flutuante e fechamento rápido no WhatsApp.
-2. **Painel da Lojista (Admin Demo):** Área administrativa para cadastrar, editar e excluir peças em tempo real, com fotos tiradas da câmera/galeria ou links da internet, sem depender de servidor externo.
+Este guia foi elaborado para a lojista ou equipe da **Dondok Store** gerenciar sua vitrine digital com rapidez, autonomia e facilidade, utilizando o celular ou computador.
 
 ---
 
-### 🔑 1. Como Acessar o Painel da Lojista (Admin)
+## 📑 Sumário
 
-Você pode abrir o painel administrativo de duas formas simples na tela:
-
-* **Método 1 (Topo da Página):** No cabeçalho principal, clique no botão cinza com o ícone de **engrenagem / configurações (`⚙️`)**, localizado entre a logo e o ícone do Instagram.
-* **Método 2 (Barra de Categorias):** Logo acima dos botões de categoria, ao lado do texto *"X peças disponíveis"*, clique no botão verde **`+ Adicionar`**.
-
-> O painel deslizará na tela como uma janela flutuante com a etiqueta **"PERFIL ADMIN"**.
-
----
-
-### 👗 2. Como Cadastrar uma Nova Peça (Passo a Passo)
-
-Ao abrir o painel, você já estará na aba **"Cadastrar Nova Peça"**. Siga as etapas abaixo:
-
-#### Passo 1: Informações Básicas
-* **Nome da Peça:** Digite o nome comercial do look (ex: *Vestido Chemise Denim Riviera* ou *Cropped Tricot Mint DK*).
-* **Categoria:** Selecione em qual aba o produto será agrupado (*Vestidos*, *Conjuntos*, *Croppeds & Blusas* ou *Calças & Shorts*).
-
-#### Passo 2: Preço e Destaque
-* **Preço (R$):** Digite o valor em reais utilizando ponto para os centavos (ex: `189.90` ou `249.00`).
-  > 💡 *O sistema calcula automaticamente o parcelamento em até 3x sem juros (ex: 3x de R$ 63,30) para exibir no card.*
-* **Tag / Destaque:** Digite uma etiqueta de atenção para o card (ex: `Lançamento`, `Mais Vendido`, `Provador DK`, `Edição Limitada`, `Promoção`).
-
-#### Passo 3: Tamanhos Disponíveis
-* Marque as caixinhas dos tamanhos que a loja tem em estoque no provador:
-  * **[ P ] [ M ] [ G ] [ GG ] [ Único ]**
-  * Você pode marcar quantos quiser. O card no catálogo permitirá que a cliente escolha entre esses tamanhos antes de enviar a mensagem no WhatsApp.
-
-#### Passo 4: Foto da Peça (2 Opções)
-O sistema aceita fotos de duas maneiras muito práticas:
-* **Opção A — Foto Direta do Aparelho (Recomendado):**
-  1. Clique no botão **`Subir Foto do Aparelho`**.
-  2. Escolha uma foto da galeria do celular ou tire uma foto na hora com a câmera do provador.
-  3. A foto será convertida instantaneamente e aparecerá no quadradinho de **Prévia**.
-* **Opção B — Link da Web:**
-  1. Se você já tem a foto hospedada na internet, cole o link direto no campo *(ex: link do Unsplash, Imgur, etc.)*.
-  2. A prévia será carregada imediatamente.
-
-#### Passo 5: Descrição da Peça
-* Descreva o caimento, tecido, fendas, forro e detalhes que ajudam na decisão de compra (ex: *Tecido crepe encorpado, não amassa, possui forro duplo e fenda lateral sutil.*).
-
-#### Passo 6: Publicar no Catálogo
-* Clique no botão verde de destaque: **`Salvar e Publicar no Catálogo`**.
-* Uma notificação preta e verde (*Toast*) confirmará o sucesso no topo da tela.
+1. [Visão Geral & Recursos do Painel Admin](#1-visão-geral--recursos-do-painel-admin)
+2. [Como Acessar o Painel](#2-como-acessar-o-painel)
+3. [Passo a Passo: Como Cadastrar uma Nova Peça](#3-passo-a-passo-como-cadastrar-uma-nova-peça)
+4. [Dicas para Fotos de Provador & Celular](#4-dicas-para-fotos-de-provador--celular)
+5. [Passo a Passo: Como Editar uma Peça](#5-passo-a-passo-como-editar-uma-peça)
+6. [Passo a Passo: Como Excluir ou Restaurar Produtos](#6-passo-a-passo-como-excluir-ou-restaurar-produtos)
+7. [Como Validar o Fluxo de Venda (Visão da Cliente)](#7-como-validar-o-fluxo-de-venda-visão-da-cliente)
+8. [Dúvidas Frequentes & Armazenamento](#8-dúvidas-frequentes--armazenamento)
 
 ---
 
-### ✏️ 3. Como Editar uma Peça Existente
+## 1. Visão Geral & Recursos do Painel Admin
 
-Se você precisar mudar o preço, trocar a foto ou atualizar os tamanhos disponíveis de uma peça:
+O painel administrativo é uma ferramenta interna embutida no próprio catálogo que permite:
+* **Cadastrar novos looks** em menos de 1 minuto;
+* **Fazer upload de fotos** diretamente da galeria do celular ou tirando fotos na hora com a câmera;
+* **Definir preços** com cálculo automático de parcelas em até 3x sem juros;
+* **Configurar tamanhos disponíveis** (P, M, G, GG, Único) para que a cliente escolha antes de chamar no WhatsApp;
+* **Atribuir tags promocionais** (ex: *Lançamento*, *Mais Vendido*, *Provador DK*, *Exclusivo*);
+* **Editar e excluir** peças existentes em tempo real, sem necessidade de programador.
 
-1. Abra o Painel Admin (clique na engrenagem `⚙️`).
-2. Clique na aba superior: **`Gerenciar Peças (X)`**.
-3. Localize a peça na lista e clique no ícone de **lápis azul (`✏️`)** à direita.
-4. O formulário será preenchido automaticamente com os dados atuais daquela peça.
-5. Faça as alterações desejadas.
+---
+
+## 2. Como Acessar o Painel
+
+O catálogo disponibiliza dois pontos de acesso intuitivos:
+
+```
+[ TOPO DA TELA ]
+Logo Use DK  ───────> [ ⚙️ Botão de Engrenagem ] ───────> [ Instagram @dondokstore ]
+```
+
+* **Método Principal (Cabeçalho):** Toque no ícone de engrenagem (**`⚙️`**) no canto superior direito do topo da página.
+* **Método Rápido (Barra de Produtos):** Logo acima das abas de categorias (*Vestidos, Conjuntos...*), há o contador *"X peças disponíveis"* com um botão verde **`+ Adicionar`**.
+
+Ao clicar, o painel deslizará na tela com o selo verde **"PERFIL ADMIN"**.
+
+---
+
+## 3. Passo a Passo: Como Cadastrar uma Nova Peça
+
+Ao abrir o painel, você estará na aba **"Cadastrar Nova Peça"**. Preencha os campos a seguir:
+
+### Etapa 1: Nome da Peça
+* Digite o nome comercial do look como é conhecido no Instagram ou na loja.
+* **Exemplos recomendados:**
+  * *Vestido Chemise Denim Riviera*
+  * *Conjunto Alfaiataria Nude Zoe*
+  * *Cropped Tricot Mint DK*
+
+### Etapa 2: Categoria
+* Selecione em qual seção do catálogo o produto deve aparecer:
+  * `Vestidos`
+  * `Conjuntos`
+  * `Croppeds & Blusas`
+  * `Calças & Shorts`
+
+### Etapa 3: Preço de Venda (R$)
+* Digite o valor em reais, utilizando ponto para separar os centavos.
+* **Exemplos:** `189.90`, `249.00`, `99.90`.
+* 💡 **Cálculo Inteligente:** O sistema calcula automaticamente no card a opção de parcelamento (*ex: 3x de R$ 63,30 sem juros*), gerando maior atratividade para a cliente.
+
+### Etapa 4: Tag de Destaque
+* Uma pequena etiqueta no topo da foto da peça para chamar a atenção da cliente.
+* **Sugestões de Tags:**
+  * `Lançamento` (para novidades da semana)
+  * `Mais Vendido` (para peças com alto giro)
+  * `Provador DK` (para fotos tiradas no provador da loja)
+  * `Últimas Peças` (para gerar senso de urgência)
+  * `Promoção` (para peças com desconto)
+
+### Etapa 5: Grade de Tamanhos
+* Marque as caixinhas dos tamanhos que você possui disponíveis em loja:
+  * `[ ] P`
+  * `[ ] M`
+  * `[ ] G`
+  * `[ ] GG`
+  * `[ ] Único`
+* Você pode marcar quantos tamanhos quiser. A cliente poderá clicar no tamanho dela na vitrine antes de fechar no WhatsApp.
+
+### Etapa 6: Foto do Look (2 Formas de Adicionar)
+
+O sistema oferece total flexibilidade:
+
+#### 📸 Opção A — Subir Foto do Celular (Recomendado):
+1. Toque no botão cinza **`Subir Foto do Aparelho`**.
+2. O celular abrirá as opções: **Câmera** (para fotografar o look no cabide ou no provador agora) ou **Galeria / Arquivos** (para escolher uma foto já tratada).
+3. Ao selecionar a foto, ela é processada instantaneamente e exibida no quadro de **Prévia**.
+
+#### 🌐 Opção B — Inserir Link da Internet:
+1. Se você hospeda fotos na nuvem (Google Fotos, Imgur, Unsplash, etc.), basta colar o link direto no campo de texto.
+2. A prévia da imagem carregará automaticamente.
+
+### Etapa 7: Descrição do Look
+* Descreva as qualidades da peça para tirar as principais dúvidas da cliente:
+  * Tecido (crepe, linho, tricot, viscose);
+  * Forro e transparência (ex: *Possui forro duplo no busto*);
+  * Fechamento (zíper invisível, botões encapados, elástico na cintura);
+  * Caimento e estilo.
+
+### Etapa 8: Publicar
+* Toque no botão verde de destaque: **`Salvar e Publicar no Catálogo`**.
+* Um aviso aparecerá no topo da tela confirmando: *"Peça cadastrada com sucesso!"*.
+* O produto já entra imediatamente na vitrine da loja.
+
+---
+
+## 4. Dicas para Fotos de Provador & Celular
+
+Para manter o padrão de boutique de luxo da Dondok Store:
+
+1. **Orientação Vertical:** Sempre tire fotos em pé (formato vertical 3:4 ou 9:16), pois o catálogo é 100% otimizado para celulares.
+2. **Iluminação Frontal:** Posicione-se de frente para a luz do provador ou utilize uma ring-light suave para realçar as cores reais dos tecidos.
+3. **Fundo Clean:** Prefira fundos lisos, cortinas neutras de provador ou o espelho limpo da loja física.
+4. **Detalhes dos Tecidos:** Se a peça tiver bordado ou textura, fotografe o look de corpo inteiro e mencione na descrição os detalhes especiais.
+
+---
+
+## 5. Passo a Passo: Como Editar uma Peça
+
+Se uma peça mudou de valor, esgotou determinado tamanho ou você tirou uma foto melhor no provador:
+
+1. Abra o Painel Admin (toque no ícone de engrenagem `⚙️`).
+2. No topo do painel, selecione a aba **`Gerenciar Peças (X)`**.
+3. Localize a peça na lista e toque no ícone de **lápis azul (`✏️`)**.
+4. O painel voltará para a aba de formulário com todos os dados daquela peça carregados.
+5. Altere as informações necessárias (ex: altere o preço de `189.90` para `169.90` ou desmarque o tamanho `P`).
 6. Clique no botão **`Salvar Alterações da Peça`**.
-7. Pronto! A alteração refletirá imediatamente em todo o catálogo.
+7. Uma mensagem verde confirmará a alteração e o catálogo será atualizado na hora.
 
 ---
 
-### 🗑️ 4. Como Excluir ou Restaurar Peças
+## 6. Passo a Passo: Como Excluir ou Restaurar Produtos
 
-#### Excluir uma peça específica:
-1. No Painel Admin, acesse a aba **`Gerenciar Peças`**.
-2. Clique no ícone de **lixeira vermelha (`🗑️`)** ao lado da peça que deseja remover.
-3. Confirme o aviso do navegador. A peça sairá da vitrine imediatamente.
+### Como Excluir uma Peça Esgotada:
+1. Abra o Painel Admin e acesse a aba **`Gerenciar Peças`**.
+2. Encontre a peça que saiu de linha e toque no ícone de **lixeira vermelha (`🗑️`)**.
+3. O navegador exibirá a confirmação: *"Tem certeza que deseja excluir esta peça?"*.
+4. Ao confirmar, o produto é removido imediatamente da vitrine.
 
-#### Restaurar Catálogo de Fábrica (Botão de Segurança):
-* Caso queira limpar os testes da demonstração e voltar para as 6 peças originais com fotos profissionais, basta clicar em **`Restaurar Peças Iniciais`** no topo da lista.
-
----
-
-### 🛒 5. Como Testar a Experiência da Cliente (Fluxo de Venda)
-
-Após cadastrar uma nova peça no Admin:
-
-1. Clique em **`Ver como Cliente`** (no rodapé do painel) ou no `✕` no topo para fechar o Admin.
-2. Observe que a nova peça já aparece na grade de produtos e o contador de peças aumentou.
-3. Clique na categoria da peça para testar o filtro.
-4. Selecione o tamanho desejado no card (ex: **G**).
-5. Clique no botão verde: **`Quero este no WhatsApp`**:
-   * O WhatsApp da loja abrirá automaticamente com a mensagem personalizada pronta:
-     > *"Olá! Vim pelo catálogo digital e tenho interesse na peça: [Nome], Tamanho: [G], Preço: [R$ X]. Ainda tem disponível?"*
-6. Clique no botão **`Adicionar à Sacola`**:
-   * A peça irá para a sacola flutuante no canto superior e inferior da tela.
-   * Ao abrir a sacola, a cliente pode clicar em **`Enviar Sacola pelo WhatsApp`** para fechar múltiplos pedidos de uma só vez.
+### Como Restaurar o Catálogo Original (Botão de Fábrica):
+* Se você fez testes e deseja voltar à vitrine inicial padrão da Dondok Store (as 6 peças elegantes com fotos profissionais):
+  1. Acesse a aba **`Gerenciar Peças`**.
+  2. Toque no botão **`Restaurar Peças Iniciais`**.
+  3. O catálogo voltará ao padrão de fábrica em segundos.
 
 ---
 
-### 💾 6. Onde e como os dados ficam salvos?
+## 7. Como Validar o Fluxo de Venda (Visão da Cliente)
 
-* **Tecnologia `localStorage`:** O catálogo grava os dados na memória local do próprio navegador.
-* **Vantagem:** Não precisa de banco de dados pago, login burocrático ou servidor para a dona da loja testar. Funciona offline, não perde os dados ao atualizar a página (F5) e roda com extrema velocidade.
+Após cadastrar ou editar peças, teste como a cliente interage:
+
+1. Toque no botão **`Ver como Cliente`** (no rodapé do painel) ou no `✕` no canto superior direito para fechar o Admin.
+2. Teste o filtro da categoria onde cadastrou o look.
+3. Selecione um tamanho no card (ex: **M**).
+4. Clique no botão verde: **`Quero este no WhatsApp`**.
+   * O WhatsApp abrirá automaticamente direcionado para o número da loja com o texto:
+   > *"Olá! Vim pelo catálogo digital e tenho interesse na peça: [Nome da Peça], Tamanho: [M], Preço: [R$ X,XX]. Ainda tem disponível?"*
+5. Teste o botão **`Adicionar à Sacola`**:
+   * O ícone da sacola no canto inferior exibirá o contador atualizado.
+   * Ao abrir a sacola, a cliente pode clicar em **`Enviar Sacola pelo WhatsApp`** para fechar pedidos múltiplos com a vendedora.
+
+---
+
+## 8. Dúvidas Frequentes & Armazenamento
+
+* **Onde os produtos novos ficam salvos?**
+  Os dados ficam salvos na memória local do navegador (`localStorage`). Isso permite demonstrações imediatas, sem custo de servidores ou dependência de internet para consultar o estoque cadastrado.
+
+* **Se eu fechar o navegador ou reiniciar o celular, os produtos somem?**
+  Não. O `localStorage` é persistente e os dados continuam salvos mesmo após reiniciar o celular ou fechar a aba.
+
+* **Como conectar o catálogo com um banco de dados real em nuvem?**
+  O código foi desenvolvido de forma modular. O array de produtos pode ser conectado a qualquer momento com um banco em nuvem (como Firebase, Supabase ou API própria) caso a loja queira sincronizar múltiplos celulares simultaneamente.
