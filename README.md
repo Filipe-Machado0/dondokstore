@@ -26,10 +26,17 @@ Protótipo mobile-first ultra-moderno e responsivo desenvolvido sob medida para 
    - **Compra em 1 Clique:** Botão *"Quero este no WhatsApp"* em cada card que envia mensagem pré-formatada com nome do produto, tamanho escolhido e preço.
    - **Sacola de Looks (Gaveta / Drawer Flutuante):** Permite adicionar múltiplos itens e enviar o pedido completo somado para a atendente no WhatsApp.
 
-3. **Integração com Instagram:**
+3. **Painel Administrativo da Lojista (Modo Admin Demonstrativo):**
+   - Acesso via botão de engrenagem no cabeçalho ou atalho `+ Adicionar` nas categorias.
+   - **Upload de Fotos:** Suporta tanto o carregamento de fotos diretamente do celular/computador (convertidas para DataURL) quanto URLs de imagens da web.
+   - **Campos Completos:** Nome, Categoria, Preço, Tag de Destaque, Descrição e Seletor de Tamanhos (P, M, G, GG, Único).
+   - **Gestão em Tempo Real:** Edição e exclusão de peças, sincronizadas instantaneamente via `localStorage`.
+   - **Botão de Restauração:** Permite redefinir o catálogo para as peças iniciais originais a qualquer momento.
+
+4. **Integração com Instagram:**
    - Link direto e atalhos para o perfil oficial [@dondokstore](https://www.instagram.com/dondokstore/).
 
-4. **Informações Locais:**
+5. **Informações Locais:**
    - Rota no Google Maps para o endereço físico (*Av. Pereira Ignácio, 101 - Boituva/SP*).
 
 ---

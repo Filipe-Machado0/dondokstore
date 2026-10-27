@@ -122,6 +122,10 @@
 
       <!-- Ações do Topo -->
       <div class="flex items-center gap-2">
+        <button id="admin-mode-btn" onclick="toggleAdminPanel(true)" class="w-9 h-9 rounded-xl bg-dk-50 border border-dk-200/80 text-dk-900 flex items-center justify-center hover:bg-dk-400 hover:text-white transition-all shadow-sm" title="Painel Admin / Lojista">
+          <i data-lucide="settings-2" class="w-4 h-4 text-dk-800"></i>
+        </button>
+
         <a href="https://www.instagram.com/dondokstore/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-dk-50 border border-dk-200/80 text-dk-800 flex items-center justify-center hover:bg-dk-400 hover:text-white transition-all shadow-sm" title="Instagram @dondokstore">
           <i data-lucide="instagram" class="w-4 h-4"></i>
         </a>
@@ -256,9 +260,15 @@
           <span class="w-2 h-2 rounded-full bg-dk-400"></span>
           Categorias
         </h3>
-        <span id="product-count" class="text-[11px] text-dk-700 font-semibold bg-dk-50 px-2.5 py-0.5 rounded-full border border-dk-100">
-          6 peças disponíveis
-        </span>
+        <div class="flex items-center gap-1.5">
+          <span id="product-count" class="text-[11px] text-dk-700 font-semibold bg-dk-50 px-2.5 py-0.5 rounded-full border border-dk-100">
+            6 peças disponíveis
+          </span>
+          <button onclick="toggleAdminPanel(true)" class="text-[11px] font-extrabold text-dk-900 bg-dk-200 hover:bg-dk-300 px-2.5 py-0.5 rounded-full transition-colors flex items-center gap-1 border border-dk-300 shadow-sm" title="Adicionar nova peça">
+            <i data-lucide="plus" class="w-3 h-3 text-dk-800"></i>
+            <span>+ Adicionar</span>
+          </button>
+        </div>
       </div>
       
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
@@ -502,6 +512,189 @@
     <span id="toast-message" class="font-semibold">Item adicionado com sucesso!</span>
   </aside>
 
+  <!-- ============================================== -->
+  <!-- PAINEL ADMINISTRATIVO (PERFIL ADMIN DEMO LOJISTA) -->
+  <!-- ============================================== -->
+  <div id="admin-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-md hidden flex flex-col justify-end sm:justify-center items-center p-0 sm:p-4">
+    <div class="w-full max-w-xl bg-white sm:rounded-3xl max-h-[92vh] sm:max-h-[88vh] flex flex-col shadow-2xl overflow-hidden border border-dk-100">
+      
+      <!-- Topo do Painel Admin -->
+      <div class="px-5 py-3.5 border-b border-dk-100 bg-gradient-to-r from-dk-50 via-white to-dk-100/50 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-dk-400 flex items-center justify-center text-dk-950 shadow-sm font-bold">
+            <i data-lucide="store" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-brand font-bold text-sm text-boutique-dark leading-tight">Painel da Lojista</h3>
+              <span class="px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase bg-dk-400 text-dk-950">PERFIL ADMIN</span>
+            </div>
+            <p class="text-[10px] text-boutique-muted">Adicione novas peças com fotos, tamanhos e valores</p>
+          </div>
+        </div>
+        <button onclick="toggleAdminPanel(false)" class="p-2 rounded-xl text-boutique-muted hover:bg-gray-100 transition-colors" title="Fechar Admin">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Abas de Navegação Admin -->
+      <div class="flex border-b border-dk-100 bg-dk-50/40 px-5 pt-2 gap-4">
+        <button onclick="switchAdminTab('new')" id="tab-btn-new" class="pb-2 text-xs font-bold border-b-2 border-dk-500 text-dk-900 transition-colors flex items-center gap-1.5">
+          <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-dk-600"></i>
+          <span id="admin-form-tab-title">Cadastrar Nova Peça</span>
+        </button>
+        <button onclick="switchAdminTab('list')" id="tab-btn-list" class="pb-2 text-xs font-bold border-b-2 border-transparent text-boutique-muted hover:text-boutique-dark transition-colors flex items-center gap-1.5">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>Gerenciar Peças (<span id="admin-items-count">6</span>)</span>
+        </button>
+      </div>
+
+      <!-- Corpo com Scroll -->
+      <div class="flex-1 overflow-y-auto p-5 space-y-4">
+        
+        <!-- ABA 1: FORMULÁRIO DE CADASTRO -->
+        <form id="admin-product-form" onsubmit="handleSaveProduct(event)" class="space-y-3.5">
+          <input type="hidden" id="prod-id" value="">
+          
+          <!-- Nome da Peça e Categoria -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1">
+              <label class="text-[11px] font-bold text-boutique-dark uppercase tracking-wide">Nome da Peça *</label>
+              <input type="text" id="prod-name" required placeholder="Ex: Vestido Seda Jade" class="w-full px-3 py-2 rounded-xl border border-dk-200 text-xs text-boutique-dark focus:ring-2 focus:ring-dk-400 focus:outline-none bg-white">
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-[11px] font-bold text-boutique-dark uppercase tracking-wide">Categoria *</label>
+              <select id="prod-category" required class="w-full px-3 py-2 rounded-xl border border-dk-200 text-xs text-boutique-dark focus:ring-2 focus:ring-dk-400 focus:outline-none bg-white font-medium">
+                <option value="vestidos">Vestidos</option>
+                <option value="conjuntos">Conjuntos</option>
+                <option value="croppeds">Croppeds & Blusas</option>
+                <option value="calcas">Calças & Shorts</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Preço e Badge -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="space-y-1">
+              <label class="text-[11px] font-bold text-boutique-dark uppercase tracking-wide">Preço (R$) *</label>
+              <input type="number" step="0.01" id="prod-price" required placeholder="189.90" class="w-full px-3 py-2 rounded-xl border border-dk-200 text-xs text-boutique-dark focus:ring-2 focus:ring-dk-400 focus:outline-none bg-white font-bold">
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-[11px] font-bold text-boutique-dark uppercase tracking-wide">Tag / Destaque</label>
+              <input type="text" id="prod-badge" placeholder="Ex: Lançamento, Mais Vendido" class="w-full px-3 py-2 rounded-xl border border-dk-200 text-xs text-boutique-dark focus:ring-2 focus:ring-dk-400 focus:outline-none bg-white">
+            </div>
+          </div>
+
+          <!-- Tamanhos Disponíveis -->
+          <div class="space-y-1.5">
+            <label class="text-[11px] font-bold text-boutique-dark uppercase tracking-wide">Tamanhos Disponíveis</label>
+            <div class="flex items-center gap-2 flex-wrap" id="sizes-selector">
+              <label class="cursor-pointer">
+                <input type="checkbox" name="sizes" value="P" class="sr-only peer" checked>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-bold border border-dk-200 text-boutique-muted peer-checked:bg-dk-400 peer-checked:text-dk-950 peer-checked:border-dk-400 select-none transition-all">P</span>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" name="sizes" value="M" class="sr-only peer" checked>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-bold border border-dk-200 text-boutique-muted peer-checked:bg-dk-400 peer-checked:text-dk-950 peer-checked:border-dk-400 select-none transition-all">M</span>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" name="sizes" value="G" class="sr-only peer" checked>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-bold border border-dk-200 text-boutique-muted peer-checked:bg-dk-400 peer-checked:text-dk-950 peer-checked:border-dk-400 select-none transition-all">G</span>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" name="sizes" value="GG" class="sr-only peer">
+                <span class="px-3 py-1.5 rounded-lg text-xs font-bold border border-dk-200 text-boutique-muted peer-checked:bg-dk-400 peer-checked:text-dk-950 peer-checked:border-dk-400 select-none transition-all">GG</span>
+              </label>
+              <label class="cursor-pointer">
+                <input type="checkbox" name="sizes" value="Único" class="sr-only peer">
+                <span class="px-3 py-1.5 rounded-lg text-xs font-bold border border-dk-200 text-boutique-muted peer-checked:bg-dk-400 peer-checked:text-dk-950 peer-checked:border-dk-400 select-none transition-all">Único</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Foto da Peça (Upload ou URL) -->
+          <div class="space-y-1.5">
+            <label class="text-[11px] font-bold text-boutique-dark uppercase tracking-wide">Foto da Peça *</label>
+            
+            <div class="flex items-start gap-3">
+              <!-- Prévia -->
+              <div id="image-preview-box" class="w-20 h-24 rounded-2xl bg-dk-50 border-2 border-dashed border-dk-300 flex flex-col items-center justify-center overflow-hidden flex-shrink-0">
+                <img id="image-preview" src="" class="w-full h-full object-cover hidden" alt="Prévia">
+                <div id="image-preview-placeholder" class="text-center p-1 text-dk-600">
+                  <i data-lucide="image" class="w-6 h-6 mx-auto"></i>
+                  <span class="text-[9px] font-semibold block mt-1">Prévia</span>
+                </div>
+              </div>
+
+              <!-- Ações de upload e input -->
+              <div class="flex-1 space-y-2">
+                <div>
+                  <label for="prod-file-input" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white border border-dk-200 text-xs font-bold text-boutique-dark hover:bg-dk-50 cursor-pointer transition-all shadow-sm">
+                    <i data-lucide="upload" class="w-3.5 h-3.5 text-dk-600"></i>
+                    <span>Subir Foto do Aparelho</span>
+                  </label>
+                  <input type="file" id="prod-file-input" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                  <p class="text-[10px] text-boutique-muted mt-1">Suporta fotos reais tiradas do celular ou galeria.</p>
+                </div>
+
+                <div>
+                  <input type="url" id="prod-image-url" placeholder="Ou cole o link da foto (Unsplash, web...)" oninput="handleImageUrlInput(this.value)" class="w-full px-3 py-1.5 rounded-xl border border-dk-200 text-xs text-boutique-dark focus:ring-2 focus:ring-dk-400 focus:outline-none bg-white">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Descrição -->
+          <div class="space-y-1">
+            <label class="text-[11px] font-bold text-boutique-dark uppercase tracking-wide">Descrição / Detalhes do Caimento *</label>
+            <textarea id="prod-desc" required rows="2" placeholder="Descreva o tecido, fendas, forro, caimento..." class="w-full px-3 py-2 rounded-xl border border-dk-200 text-xs text-boutique-dark focus:ring-2 focus:ring-dk-400 focus:outline-none bg-white leading-relaxed"></textarea>
+          </div>
+
+          <!-- Ação Salvar -->
+          <div class="pt-2 flex items-center gap-2">
+            <button type="submit" id="save-prod-btn" class="flex-1 py-3 px-4 rounded-xl bg-dk-400 hover:bg-dk-300 text-dk-950 font-bold text-xs shadow-dk-glow transition-all flex items-center justify-center gap-2 active:scale-95">
+              <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+              <span id="save-btn-text">Salvar e Publicar no Catálogo</span>
+            </button>
+            
+            <button type="button" onclick="resetAdminForm()" id="cancel-edit-btn" class="hidden py-3 px-3.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-boutique-dark font-bold text-xs transition-colors">
+              Cancelar
+            </button>
+          </div>
+        </form>
+
+        <!-- ABA 2: LISTAGEM DE PEÇAS CADASTRADAS -->
+        <div id="admin-products-list" class="hidden space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-dk-100">
+            <p class="text-xs font-bold text-boutique-dark">Peças Ativas no Catálogo</p>
+            <button onclick="restoreDefaultCatalog()" class="text-[11px] font-bold text-rose-600 hover:underline flex items-center gap-1">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              Restaurar Peças Iniciais
+            </button>
+          </div>
+
+          <div id="admin-table-items" class="space-y-2.5"></div>
+        </div>
+
+      </div>
+
+      <!-- Rodapé do Modal Admin -->
+      <div class="px-5 py-3 border-t border-dk-100 bg-sand-50/60 flex items-center justify-between">
+        <span class="text-[11px] text-boutique-muted flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Salvo automaticamente no navegador
+        </span>
+        <button onclick="toggleAdminPanel(false)" class="text-xs font-bold text-dk-700 hover:underline flex items-center gap-1">
+          <span>Ver como Cliente</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- ========================================== -->
   <!-- JAVASCRIPT: LÓGICA E INTEGRAÇÃO WHATSAPP   -->
   <!-- ========================================== -->
@@ -515,8 +708,8 @@
       instagramHandle: "@dondokstore"
     };
 
-    // 2. CATÁLOGO COM FOTOS 100% COERENTES COM CADA PEÇA
-    const PRODUCTS = [
+    // 2. CATÁLOGO COM FOTOS COERENTES (PADRÃO INICIAL)
+    const DEFAULT_PRODUCTS = [
       {
         id: 1,
         name: "Vestido Midi Envelope Floral Riviera",
@@ -590,6 +783,33 @@
         description: "Cintura alta com cós anatômico, bolsos frontais funcionais e barra afunilada elegante."
       }
     ];
+
+    // Carrega do LocalStorage ou usa o catálogo inicial padrão
+    function loadStoredProducts() {
+      try {
+        const stored = localStorage.getItem('dk_products');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) {
+        console.error('Erro ao ler localStorage', e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+    }
+
+    let PRODUCTS = loadStoredProducts();
+
+    function saveProducts() {
+      try {
+        localStorage.setItem('dk_products', JSON.stringify(PRODUCTS));
+      } catch (e) {
+        console.error('Erro ao salvar no localStorage', e);
+      }
+      renderProducts();
+      renderAdminProducts();
+      updateCartUI();
+    }
 
     let currentFilter = 'todos';
     let searchQuery = '';
@@ -948,10 +1168,256 @@ Gostaria de verificar a disponibilidade dessas peças no provador para entrega/r
       }, 2600);
     }
 
-    // 9. INICIALIZAÇÃO
+    // 9. FUNÇÕES DO PAINEL ADMIN (MODO LOJISTA DEMO)
+    let currentAdminImage = '';
+    let isAdminOpen = false;
+
+    function toggleAdminPanel(show) {
+      const modal = document.getElementById('admin-modal');
+      isAdminOpen = show;
+      if (show) {
+        modal.classList.remove('hidden');
+        renderAdminProducts();
+      } else {
+        modal.classList.add('hidden');
+        resetAdminForm();
+      }
+      lucide.createIcons();
+    }
+
+    function switchAdminTab(tab) {
+      const tabNew = document.getElementById('tab-btn-new');
+      const tabList = document.getElementById('tab-btn-list');
+      const form = document.getElementById('admin-product-form');
+      const list = document.getElementById('admin-products-list');
+
+      if (tab === 'new') {
+        tabNew.classList.add('border-dk-500', 'text-dk-900');
+        tabNew.classList.remove('border-transparent', 'text-boutique-muted');
+        tabList.classList.remove('border-dk-500', 'text-dk-900');
+        tabList.classList.add('border-transparent', 'text-boutique-muted');
+        form.classList.remove('hidden');
+        list.classList.add('hidden');
+      } else {
+        tabList.classList.add('border-dk-500', 'text-dk-900');
+        tabList.classList.remove('border-transparent', 'text-boutique-muted');
+        tabNew.classList.remove('border-dk-500', 'text-dk-900');
+        tabNew.classList.add('border-transparent', 'text-boutique-muted');
+        form.classList.add('hidden');
+        list.classList.remove('hidden');
+        renderAdminProducts();
+      }
+      lucide.createIcons();
+    }
+
+    function handleImageUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        currentAdminImage = evt.target.result;
+        updateImagePreview(currentAdminImage);
+        document.getElementById('prod-image-url').value = '';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleImageUrlInput(url) {
+      currentAdminImage = url.trim();
+      updateImagePreview(currentAdminImage);
+    }
+
+    function updateImagePreview(src) {
+      const img = document.getElementById('image-preview');
+      const placeholder = document.getElementById('image-preview-placeholder');
+      if (src) {
+        img.src = src;
+        img.classList.remove('hidden');
+        placeholder.classList.add('hidden');
+      } else {
+        img.classList.add('hidden');
+        placeholder.classList.remove('hidden');
+      }
+    }
+
+    function handleSaveProduct(e) {
+      e.preventDefault();
+
+      const idField = document.getElementById('prod-id').value;
+      const name = document.getElementById('prod-name').value.trim();
+      const category = document.getElementById('prod-category').value;
+      const price = parseFloat(document.getElementById('prod-price').value) || 0;
+      const badge = document.getElementById('prod-badge').value.trim() || 'Novidade';
+      const desc = document.getElementById('prod-desc').value.trim();
+      
+      const selectedSizes = Array.from(document.querySelectorAll('input[name="sizes"]:checked')).map(cb => cb.value);
+      if (selectedSizes.length === 0) {
+        showToast('Selecione pelo menos um tamanho!');
+        return;
+      }
+
+      if (!currentAdminImage) {
+        showToast('Adicione uma foto para a peça!');
+        return;
+      }
+
+      const installments = `3x de ${formatBRL(price / 3)} sem juros`;
+
+      if (idField) {
+        // Editar existente
+        const idx = PRODUCTS.findIndex(p => p.id == idField);
+        if (idx !== -1) {
+          PRODUCTS[idx] = {
+            ...PRODUCTS[idx],
+            name,
+            category,
+            price,
+            installments,
+            badge,
+            description: desc,
+            availableSizes: selectedSizes,
+            selectedSize: selectedSizes.includes(PRODUCTS[idx].selectedSize) ? PRODUCTS[idx].selectedSize : selectedSizes[0],
+            image: currentAdminImage
+          };
+          showToast(`Peça "${name}" atualizada com sucesso!`);
+        }
+      } else {
+        // Criar novo
+        const newProd = {
+          id: Date.now(),
+          name,
+          category,
+          price,
+          installments,
+          badge,
+          description: desc,
+          availableSizes: selectedSizes,
+          selectedSize: selectedSizes[0],
+          image: currentAdminImage
+        };
+        PRODUCTS.unshift(newProd);
+        showToast(`Nova peça "${name}" cadastrada no catálogo!`);
+      }
+
+      saveProducts();
+      resetAdminForm();
+      switchAdminTab('list');
+    }
+
+    function editProductInAdmin(id) {
+      const prod = PRODUCTS.find(p => p.id == id);
+      if (!prod) return;
+
+      document.getElementById('prod-id').value = prod.id;
+      document.getElementById('prod-name').value = prod.name;
+      document.getElementById('prod-category').value = prod.category;
+      document.getElementById('prod-price').value = prod.price;
+      document.getElementById('prod-badge').value = prod.badge;
+      document.getElementById('prod-desc').value = prod.description;
+      
+      currentAdminImage = prod.image;
+      updateImagePreview(prod.image);
+      document.getElementById('prod-image-url').value = prod.image.startsWith('http') ? prod.image : '';
+
+      document.querySelectorAll('input[name="sizes"]').forEach(cb => {
+        cb.checked = prod.availableSizes.includes(cb.value);
+      });
+
+      document.getElementById('save-btn-text').textContent = 'Salvar Alterações da Peça';
+      document.getElementById('admin-form-tab-title').textContent = 'Editar Peça';
+      document.getElementById('cancel-edit-btn').classList.remove('hidden');
+
+      switchAdminTab('new');
+    }
+
+    function deleteProductFromAdmin(id) {
+      const prod = PRODUCTS.find(p => p.id == id);
+      if (!prod) return;
+
+      if (confirm(`Tem certeza que deseja remover "${prod.name}" do catálogo?`)) {
+        PRODUCTS = PRODUCTS.filter(p => p.id != id);
+        saveProducts();
+        showToast(`Peça "${prod.name}" removida.`);
+        renderAdminProducts();
+      }
+    }
+
+    function resetAdminForm() {
+      document.getElementById('admin-product-form').reset();
+      document.getElementById('prod-id').value = '';
+      currentAdminImage = '';
+      updateImagePreview('');
+      document.getElementById('save-btn-text').textContent = 'Salvar e Publicar no Catálogo';
+      document.getElementById('admin-form-tab-title').textContent = 'Cadastrar Nova Peça';
+      document.getElementById('cancel-edit-btn').classList.add('hidden');
+      
+      document.querySelectorAll('input[name="sizes"]').forEach(cb => {
+        cb.checked = ['P', 'M', 'G'].includes(cb.value);
+      });
+    }
+
+    function restoreDefaultCatalog() {
+      if (confirm('Deseja restaurar as peças iniciais originais do catálogo? Todas as peças criadas serão redefinidas.')) {
+        PRODUCTS = JSON.parse(JSON.stringify(DEFAULT_PRODUCTS));
+        saveProducts();
+        showToast('Catálogo inicial restaurado!');
+        renderAdminProducts();
+      }
+    }
+
+    function renderAdminProducts() {
+      const container = document.getElementById('admin-table-items');
+      const countEl = document.getElementById('admin-items-count');
+      if (!container) return;
+
+      countEl.textContent = PRODUCTS.length;
+
+      if (PRODUCTS.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-boutique-muted space-y-2">
+            <i data-lucide="package-x" class="w-8 h-8 mx-auto text-gray-300"></i>
+            <p class="text-xs">Nenhuma peça cadastrada no momento.</p>
+            <button onclick="switchAdminTab('new')" class="text-xs font-bold text-dk-600 hover:underline">Cadastrar primeira peça</button>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = PRODUCTS.map(item => `
+        <div class="flex items-center justify-between p-3 rounded-2xl bg-white border border-dk-100 hover:border-dk-300 transition-all shadow-sm gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="${item.image}" alt="${item.name}" class="w-12 h-14 object-cover rounded-xl border border-gray-100 flex-shrink-0">
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-[9px] font-bold uppercase tracking-wider bg-dk-50 text-dk-800 px-1.5 py-0.5 rounded">${item.category}</span>
+                <span class="text-[9px] font-extrabold text-boutique-dark bg-gray-100 px-1.5 py-0.5 rounded">${item.badge}</span>
+              </div>
+              <h4 class="font-brand font-bold text-xs text-boutique-dark truncate mt-0.5">${item.name}</h4>
+              <p class="text-xs font-extrabold text-dk-700">${formatBRL(item.price)} <span class="text-[10px] font-medium text-boutique-muted">(${item.availableSizes.join(', ')})</span></p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-1 flex-shrink-0">
+            <button onclick="editProductInAdmin(${item.id})" class="p-2 rounded-xl text-dk-700 hover:bg-dk-50 transition-colors" title="Editar Peça">
+              <i data-lucide="edit-3" class="w-4 h-4"></i>
+            </button>
+            <button onclick="deleteProductFromAdmin(${item.id})" class="p-2 rounded-xl text-gray-400 hover:text-rose-500 hover:bg-rose-50 transition-colors" title="Remover Peça">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    // 10. INICIALIZAÇÃO
     window.addEventListener('DOMContentLoaded', () => {
       renderProducts();
       updateCartUI();
+      renderAdminProducts();
       lucide.createIcons();
     });
   </script>
