@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dondok Store | Use DK - Catálogo de Bolso</title>
+  
+  <!-- Favicon com a Cor Oficial da Marca -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fontes do Google: Ephesis e Birthstone Bounce (slogan cursivo com coração) + Syne + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&family=Ephesis&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dk: {
+              50: '#F0FAF9',
+              100: '#D7F5F1',
+              200: '#B3ECE5',
+              300: '#7FE0D4',
+              400: '#3ACDBB', // COR EXATA EXTRAÍDA DA LOGO (#3acdbb)
+              500: '#21B3A1',
+              600: '#179183',
+              700: '#157469',
+              800: '#155C54',
+              900: '#0E3B36',
+              950: '#06201D',
+            },
+            boutique: {
+              canvas: '#F7FCFB',     // Fundo suave com nuance menta/off-white
+              card: '#FFFFFF',
+              dark: '#111827',       // Preto sofisticado para contraste
+              charcoal: '#1F2937',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              accent: '#0A2E2A',
+            }
+          },
+          fontFamily: {
+            brand: ['"Syne"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            script: ['"Ephesis"', '"Birthstone Bounce"', '"Great Vibes"', 'cursive'],
+          },
+          boxShadow: {
+            'dk-glow': '0 8px 24px -4px rgba(58, 205, 187, 0.38)',
+            'dk-card': '0 10px 30px -10px rgba(14, 59, 54, 0.08)',
+            'dk-floating': '0 14px 40px -8px rgba(33, 179, 161, 0.28)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    html { -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+    body {
+      background-color: #F7FCFB;
+      color: #111827;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-script {
+      font-family: 'Ephesis', 'Birthstone Bounce', 'Great Vibes', cursive;
+    }
+    .glass-header {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .brand-gradient {
+      background: linear-gradient(135deg, #3ACDBB 0%, #179183 100%);
+    }
+    .brand-glow-active {
+      box-shadow: 0 4px 18px rgba(58, 205, 187, 0.45);
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-32 antialiased selection:bg-dk-200 selection:text-dk-900">
+
+  <!-- TOP BAR / ANÚNCIO ELEGANTE COM O TOM OFICIAL -->
+  <aside aria-label="Aviso da Loja" class="brand-gradient text-white text-[11px] font-semibold py-2 px-4 text-center tracking-wider flex items-center justify-center gap-2 shadow-sm">
+    <span class="inline-block w-2 h-2 rounded-full bg-white animate-ping"></span>
+    <span class="uppercase tracking-widest">PROVADOR DK ATIVO • ENVIE SEU LOOK NO WHATSAPP</span>
+  </aside>
+
+  <!-- CABEÇALHO / HEADER MOBILE COM A LOGO REAL DA DK -->
+  <header class="sticky top-0 z-40 glass-header border-b border-dk-100 transition-all shadow-[0_2px_15px_-4px_rgba(58,205,187,0.08)]">
+    <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
+      
+      <!-- Logo Oficial Use DK -->
+      <div class="flex items-center gap-3">
+        <div class="relative w-11 h-11 rounded-2xl overflow-hidden shadow-dk-glow border-2 border-white flex-shrink-0 bg-[#3acdbb] flex items-center justify-center">
+          <img 
+            src="logo.png" 
+            alt="Logo DK Dondok Store" 
+            class="w-full h-full object-cover"
+            onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' fill=\'none\' stroke=\'white\' stroke-width=\'5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect width=\'100\' height=\'100\' fill=\'%233acdbb\' stroke=\'none\'/><path d=\'M30 25v50h20a25 25 0 0 0 0-50H30z\' fill=\'none\'/><path d=\'M45 30v40M45 50l25-25M45 50l25 25\'/></svg>';"
+          >
+        </div>
+        <div>
+          <div class="flex items-center gap-1">
+            <span class="font-script text-2xl text-boutique-dark leading-none tracking-normal font-normal">dondok store</span>
+            <span class="text-xs text-dk-500 font-bold -mt-1.5">♥</span>
+          </div>
+          <p class="text-[8.5px] tracking-[0.22em] text-dk-800 font-extrabold uppercase mt-0.5">
+            BY KAREN FERNANDES
+          </p>
+        </div>
+      </div>
+
+      <!-- Ações do Topo -->
+      <div class="flex items-center gap-2">
+        <a href="https://www.instagram.com/dondokstore/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-dk-50 border border-dk-200/80 text-dk-800 flex items-center justify-center hover:bg-dk-400 hover:text-white transition-all shadow-sm" title="Instagram @dondokstore">
+          <i data-lucide="instagram" class="w-4 h-4"></i>
+        </a>
+        
+        <button id="open-cart-btn" onclick="toggleCartDrawer(true)" class="relative w-9 h-9 rounded-xl bg-boutique-dark text-white flex items-center justify-center hover:bg-dk-700 transition-all shadow-sm" title="Ver Sacola">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-dk-300"></i>
+          <span id="cart-badge-count" class="absolute -top-1.5 -right-1.5 bg-dk-400 text-boutique-dark text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm scale-0 transition-transform duration-200">
+            0
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barra de Localização Boituva -->
+    <div class="max-w-md mx-auto px-4 pb-2 text-[11px] text-boutique-muted flex items-center justify-between border-t border-dk-50 pt-1.5 bg-white/50">
+      <div class="flex items-center gap-1.5 truncate">
+        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-dk-600 flex-shrink-0"></i>
+        <span class="truncate font-medium text-boutique-charcoal">Av. Pereira Ignácio, 101 • Boituva/SP</span>
+      </div>
+      <a href="https://maps.google.com/?q=Av.+Pereira+Ignacio,+101,+Boituva+SP" target="_blank" rel="noopener noreferrer" class="text-dk-700 font-bold hover:underline flex-shrink-0 pl-2">
+        Traçar Rota
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTAINER CENTRAL -->
+  <main class="max-w-md mx-auto px-4 pt-4 space-y-6">
+
+    <!-- DESTAQUES EM CÍRCULOS (STORIES NO ESTILO INSTAGRAM DK) -->
+    <section aria-label="Stories da Loja" class="flex items-center gap-3.5 overflow-x-auto no-scrollbar py-1">
+      
+      <!-- Story 1: Vestidos -->
+      <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group" onclick="filterCategory('vestidos')">
+        <div class="w-16 h-16 rounded-full p-[2.5px] bg-gradient-to-tr from-dk-400 via-dk-200 to-dk-500 shadow-sm transition-transform duration-200 group-hover:scale-105">
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=150&auto=format&fit=crop&q=80" alt="Vestidos" class="w-full h-full object-cover rounded-full border-2 border-white">
+        </div>
+        <span class="text-[11px] font-semibold text-boutique-dark">Vestidos</span>
+      </div>
+
+      <!-- Story 2: Conjuntos -->
+      <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group" onclick="filterCategory('conjuntos')">
+        <div class="w-16 h-16 rounded-full p-[2.5px] bg-gradient-to-tr from-dk-400 via-dk-200 to-dk-500 shadow-sm transition-transform duration-200 group-hover:scale-105">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=150&auto=format&fit=crop&q=80" alt="Conjuntos" class="w-full h-full object-cover rounded-full border-2 border-white">
+        </div>
+        <span class="text-[11px] font-semibold text-boutique-dark">Conjuntos</span>
+      </div>
+
+      <!-- Story 3: Croppeds -->
+      <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group" onclick="filterCategory('croppeds')">
+        <div class="w-16 h-16 rounded-full p-[2.5px] bg-gradient-to-tr from-dk-400 via-dk-200 to-dk-500 shadow-sm transition-transform duration-200 group-hover:scale-105">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Croppeds" class="w-full h-full object-cover rounded-full border-2 border-white">
+        </div>
+        <span class="text-[11px] font-semibold text-boutique-dark">Croppeds</span>
+      </div>
+
+      <!-- Story 4: Calças -->
+      <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group" onclick="filterCategory('calcas')">
+        <div class="w-16 h-16 rounded-full p-[2.5px] bg-gradient-to-tr from-dk-400 via-dk-200 to-dk-500 shadow-sm transition-transform duration-200 group-hover:scale-105">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=150&auto=format&fit=crop&q=80" alt="Calças" class="w-full h-full object-cover rounded-full border-2 border-white">
+        </div>
+        <span class="text-[11px] font-semibold text-boutique-dark">Calças</span>
+      </div>
+
+      <!-- Story 5: Provador DK (Especial) -->
+      <div class="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group" onclick="openConsultoraWhatsApp('Olá! Vi o destaque do Provador DK e quero atendimento VIP.')">
+        <div class="w-16 h-16 rounded-full p-[2.5px] bg-gradient-to-tr from-dk-500 to-emerald-400 shadow-sm transition-transform duration-200 group-hover:scale-105">
+          <div class="w-full h-full bg-dk-400 rounded-full flex flex-col items-center justify-center border-2 border-white text-white">
+            <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>
+          </div>
+        </div>
+        <span class="text-[11px] font-bold text-dk-800">Provador</span>
+      </div>
+    </section>
+
+    <!-- BANNER HERO INSPIRADO NO TEMA DA MARCA -->
+    <section class="relative rounded-3xl overflow-hidden shadow-dk-glow bg-boutique-dark text-white border border-dk-200/50">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&auto=format&fit=crop&q=80" alt="Coleção Use DK" class="w-full h-64 object-cover opacity-70">
+      
+      <!-- Degradê elegante mesclando com o verde da logo -->
+      <div class="absolute inset-0 bg-gradient-to-t from-dk-950/95 via-boutique-dark/50 to-transparent flex flex-col justify-end p-5">
+        
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-widest bg-dk-400 text-dk-950 uppercase shadow-sm">
+            LANÇAMENTO DK
+          </span>
+          <span class="text-[11px] font-medium text-dk-100 flex items-center gap-1">
+            <i data-lucide="star" class="w-3 h-3 text-dk-400 fill-dk-400"></i>
+            Provador Boituva
+          </span>
+        </div>
+
+        <h2 class="font-brand text-2xl font-bold leading-tight tracking-tight">
+          Coleção Fim de Semana
+        </h2>
+        <p class="text-xs text-dk-50/90 mt-1 max-w-[290px] leading-relaxed">
+          Peças exclusivas selecionadas para valorizar o seu estilo com o frescor e elegância da DK.
+        </p>
+
+        <div class="mt-4 flex items-center gap-2.5">
+          <button onclick="scrollToProducts()" class="px-4 py-2.5 rounded-xl bg-dk-400 text-dk-950 text-xs font-bold hover:bg-dk-300 transition-all shadow-dk-glow flex items-center gap-1.5 active:scale-95">
+            Explorar Looks
+            <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+          </button>
+          
+          <button onclick="openConsultoraWhatsApp('Olá! Gostaria de ajuda para escolher um look da nova coleção.')" class="px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-semibold border border-white/20 transition-all flex items-center gap-1.5 active:scale-95">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5 text-dk-300"></i>
+            Consultora DK
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DE PESQUISA RÁPIDA -->
+    <div class="relative">
+      <i data-lucide="search" class="w-4 h-4 text-dk-600 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+      <input 
+        id="search-input" 
+        type="text" 
+        oninput="handleSearch(this.value)"
+        placeholder="Buscar vestido jade, conjunto, alfaiataria..." 
+        class="w-full pl-10 pr-9 py-2.5 bg-white border border-dk-200 rounded-2xl text-xs text-boutique-dark focus:outline-none focus:ring-2 focus:ring-dk-400 focus:border-transparent transition-all shadow-sm placeholder:text-gray-400"
+      >
+      <button id="clear-search" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-dk-700">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- ABAS DE NAVEGAÇÃO / FILTROS NO TEMA DK -->
+    <section id="categories-section" class="space-y-2.5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xs font-bold tracking-wider uppercase text-dk-900 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-dk-400"></span>
+          Categorias
+        </h3>
+        <span id="product-count" class="text-[11px] text-dk-700 font-semibold bg-dk-50 px-2.5 py-0.5 rounded-full border border-dk-100">
+          6 peças disponíveis
+        </span>
+      </div>
+      
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+        <button onclick="filterCategory('todos')" data-category="todos" class="category-btn active px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 bg-dk-400 text-dk-950 brand-glow-active">
+          Todos os Looks
+        </button>
+        <button onclick="filterCategory('vestidos')" data-category="vestidos" class="category-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 bg-white text-boutique-charcoal border border-dk-200 hover:border-dk-400">
+          Vestidos
+        </button>
+        <button onclick="filterCategory('conjuntos')" data-category="conjuntos" class="category-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 bg-white text-boutique-charcoal border border-dk-200 hover:border-dk-400">
+          Conjuntos
+        </button>
+        <button onclick="filterCategory('croppeds')" data-category="croppeds" class="category-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 bg-white text-boutique-charcoal border border-dk-200 hover:border-dk-400">
+          Croppeds & Blusas
+        </button>
+        <button onclick="filterCategory('calcas')" data-category="calcas" class="category-btn px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 bg-white text-boutique-charcoal border border-dk-200 hover:border-dk-400">
+          Calças & Shorts
+        </button>
+      </div>
+    </section>
+
+    <!-- GRADE DE PRODUTOS -->
+    <section id="products-section" class="space-y-4">
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+
+      <!-- Estado Vazio -->
+      <div id="empty-state" class="hidden text-center py-12 px-4 space-y-3 bg-white rounded-3xl border border-dashed border-dk-200 shadow-sm">
+        <div class="w-12 h-12 rounded-2xl bg-dk-50 text-dk-600 flex items-center justify-center mx-auto border border-dk-100">
+          <i data-lucide="search-x" class="w-6 h-6"></i>
+        </div>
+        <p class="font-brand font-bold text-base text-boutique-dark">Nenhum look encontrado</p>
+        <p class="text-xs text-boutique-muted max-w-xs mx-auto">Tente buscar por outro termo ou escolha uma categoria diferente acima.</p>
+        <button onclick="filterCategory('todos')" class="px-5 py-2.5 rounded-xl bg-dk-400 text-dk-950 font-bold text-xs mt-2 hover:bg-dk-300 transition-colors shadow-dk-glow">
+          Ver todas as peças
+        </button>
+      </div>
+    </section>
+
+    <!-- CARD DE VANTAGENS DO PROVADOR DK (INSPIRADO NA LOGO) -->
+    <section class="bg-gradient-to-br from-dk-50 via-white to-dk-100/40 rounded-3xl p-5 border border-dk-200 space-y-3.5 shadow-dk-card">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-dk-400 flex items-center justify-center text-dk-950 font-bold shadow-sm">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h4 class="font-brand font-bold text-sm text-boutique-dark">Diferenciais Use DK</h4>
+          <p class="text-[10px] text-dk-800 font-medium">Comodidade e atendimento personalizado</p>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-3 pt-1">
+        <div class="flex items-start gap-2 bg-white/70 p-2.5 rounded-xl border border-dk-100">
+          <i data-lucide="truck" class="w-4 h-4 text-dk-600 mt-0.5 flex-shrink-0"></i>
+          <div>
+            <p class="text-xs font-bold text-boutique-dark">Delivery Boituva</p>
+            <p class="text-[10px] text-boutique-muted">Entregamos com agilidade na sua casa.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-2 bg-white/70 p-2.5 rounded-xl border border-dk-100">
+          <i data-lucide="credit-card" class="w-4 h-4 text-dk-600 mt-0.5 flex-shrink-0"></i>
+          <div>
+            <p class="text-xs font-bold text-boutique-dark">Pix ou Cartão</p>
+            <p class="text-[10px] text-boutique-muted">Até 3x sem juros ou desconto no Pix.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-2 bg-white/70 p-2.5 rounded-xl border border-dk-100">
+          <i data-lucide="refresh-cw" class="w-4 h-4 text-dk-600 mt-0.5 flex-shrink-0"></i>
+          <div>
+            <p class="text-xs font-bold text-boutique-dark">Troca no Provador</p>
+            <p class="text-[10px] text-boutique-muted">Garantia e suporte direto na loja física.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-2 bg-white/70 p-2.5 rounded-xl border border-dk-100">
+          <i data-lucide="video" class="w-4 h-4 text-dk-600 mt-0.5 flex-shrink-0"></i>
+          <div>
+            <p class="text-xs font-bold text-boutique-dark">Vídeo da Peça</p>
+            <p class="text-[10px] text-boutique-muted">Mostramos o caimento no WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER DE CONEXÃO COM O INSTAGRAM @DONDOKSTORE -->
+    <section class="bg-gradient-to-r from-dk-50 via-white to-dk-100/50 rounded-3xl p-5 border border-dk-200 text-center space-y-3 shadow-sm">
+      <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-dk-500 to-dk-300 p-0.5 shadow-dk-glow">
+        <div class="w-full h-full bg-white rounded-2xl flex items-center justify-center text-dk-700">
+          <i data-lucide="instagram" class="w-6 h-6"></i>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-brand font-bold text-sm text-boutique-dark">Acompanhe no Instagram</h4>
+        <p class="text-xs text-dk-700 font-extrabold mt-0.5">@dondokstore</p>
+        <p class="text-[11px] text-boutique-muted mt-1 max-w-xs mx-auto">
+          Veja provadores diários, bastidores e novidades em tempo real nos nossos stories!
+        </p>
+      </div>
+      <a 
+        href="https://www.instagram.com/dondokstore/" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-boutique-dark text-white hover:bg-dk-800 text-xs font-bold transition-all shadow-sm active:scale-95"
+      >
+        <i data-lucide="instagram" class="w-4 h-4 text-dk-400"></i>
+        <span>Seguir @dondokstore</span>
+        <i data-lucide="external-link" class="w-3.5 h-3.5 text-gray-400"></i>
+      </a>
+    </section>
+
+    <!-- FOOTER DA LOJA -->
+    <footer class="pt-6 pb-6 text-center space-y-4 border-t border-dk-100">
+      <div class="space-y-1">
+        <div class="w-10 h-10 mx-auto rounded-xl bg-dk-400 p-1 shadow-sm flex items-center justify-center">
+          <img src="logo.png" alt="DK" class="w-full h-full object-cover rounded-lg" onerror="this.style.display='none'">
+        </div>
+        <div class="pt-2">
+          <p class="font-script text-3xl text-boutique-dark leading-none">dondok store <span class="text-sm text-dk-500 font-bold">♥</span></p>
+          <p class="text-[9.5px] tracking-[0.25em] text-dk-800 font-extrabold uppercase mt-1">BY KAREN FERNANDES</p>
+        </div>
+        <p class="text-xs text-boutique-muted pt-1">Av. Pereira Ignácio, 101 • Centro • Boituva/SP</p>
+        <p class="text-[11px] text-dk-700 font-semibold">Seg a Sex das 09h às 18h | Sáb das 09h às 14h</p>
+      </div>
+
+      <div class="flex items-center justify-center gap-4 text-xs font-semibold">
+        <a href="https://www.instagram.com/dondokstore/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-boutique-dark hover:text-dk-600">
+          <i data-lucide="instagram" class="w-4 h-4 text-dk-600"></i>
+          @dondokstore
+        </a>
+        <span class="text-dk-200">•</span>
+        <button onclick="openConsultoraWhatsApp('Olá! Gostaria de falar com o atendimento da Dondok Store')" class="flex items-center gap-1.5 text-boutique-dark hover:text-dk-600">
+          <i data-lucide="phone" class="w-4 h-4 text-dk-600"></i>
+          (15) 99876-5432
+        </button>
+      </div>
+
+      <p class="text-[10px] text-gray-400">© 2026 Dondok Store. Todos os direitos reservados.</p>
+    </footer>
+
+  </main>
+
+  <!-- BARRA INFERIOR FLUTUANTE (BOTTOM NAV BAR) -->
+  <aside aria-label="Acesso Rápido" class="fixed bottom-0 left-0 right-0 z-30 glass-header border-t border-dk-100 px-4 py-2.5 shadow-dk-floating">
+    <div class="max-w-md mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Falar com Consultora -->
+      <button onclick="openConsultoraWhatsApp('Olá, equipe Dondok! Gostaria de saber mais sobre as novidades do catálogo.')" class="flex-1 py-3 px-3 rounded-2xl bg-white border border-dk-200 text-boutique-charcoal text-xs font-bold hover:bg-dk-50 transition-colors flex items-center justify-center gap-2 shadow-sm active:scale-95">
+        <i data-lucide="message-circle" class="w-4 h-4 text-dk-600"></i>
+        <span>Dúvidas / Whats</span>
+      </button>
+
+      <!-- Ver Sacola -->
+      <button onclick="toggleCartDrawer(true)" class="flex-1 py-3 px-3 rounded-2xl bg-boutique-dark text-white text-xs font-bold hover:bg-dk-900 transition-colors flex items-center justify-center gap-2 shadow-dk-glow active:scale-95">
+        <div class="relative">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-dk-400"></i>
+          <span id="bottom-cart-badge" class="absolute -top-2 -right-2 bg-dk-400 text-dk-950 text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center hidden">
+            0
+          </span>
+        </div>
+        <span>Sacola (<span id="bottom-cart-total">R$ 0,00</span>)</span>
+      </button>
+      
+    </div>
+  </aside>
+
+  <!-- GAVETA LATERAL / DRAWER DA SACOLA DE COMPRAS -->
+  <div id="cart-drawer-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCartDrawer(false)"></div>
+
+  <section id="cart-drawer" aria-label="Sacola de Compras" class="fixed inset-y-0 right-0 w-full max-w-sm bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out">
+    
+    <!-- Topo da Sacola -->
+    <div class="p-4 border-b border-dk-100 flex items-center justify-between bg-dk-50/70">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-dk-400 flex items-center justify-center text-dk-950 shadow-sm font-bold">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1">
+            <span class="font-script text-xl text-boutique-dark leading-none">dondok store</span>
+            <span class="text-xs text-dk-500 font-bold -mt-1">♥</span>
+          </div>
+          <p class="text-[9px] text-dk-800 font-extrabold uppercase tracking-widest mt-0.5">Sua Sacola de Looks</p>
+        </div>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-2 rounded-xl hover:bg-gray-200 text-boutique-muted transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Lista de Itens -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-4 space-y-3 divide-y divide-gray-100"></div>
+
+    <!-- Estado Vazio da Sacola -->
+    <div id="cart-empty-msg" class="flex-1 flex flex-col items-center justify-center p-6 text-center space-y-3">
+      <div class="w-16 h-16 rounded-2xl bg-dk-50 text-dk-500 flex items-center justify-center border border-dk-100">
+        <i data-lucide="shopping-bag" class="w-8 h-8 text-dk-500"></i>
+      </div>
+      <p class="font-brand font-bold text-base text-boutique-dark">Sua sacola está vazia</p>
+      <p class="text-xs text-boutique-muted">Adicione os looks que você mais gostou para enviar tudo em uma mensagem só para o provador.</p>
+      <button onclick="toggleCartDrawer(false)" class="px-5 py-2.5 rounded-xl bg-dk-400 text-dk-950 font-bold text-xs hover:bg-dk-300 transition-colors shadow-dk-glow">
+        Ver catálogo de looks
+      </button>
+    </div>
+
+    <!-- Rodapé com Total e Botão WhatsApp -->
+    <div id="cart-footer" class="p-4 border-t border-dk-100 bg-dk-50/40 space-y-3 hidden">
+      <div class="space-y-1.5 text-xs">
+        <div class="flex justify-between text-boutique-muted">
+          <span>Subtotal:</span>
+          <span id="drawer-subtotal" class="font-bold text-boutique-dark">R$ 0,00</span>
+        </div>
+        <div class="flex justify-between text-dk-700 font-semibold">
+          <span>Entrega / Retirada:</span>
+          <span>A combinar com a loja</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-boutique-dark border-t border-dk-100 pt-2 font-brand">
+          <span>Total Estimado:</span>
+          <span id="drawer-total" class="text-dk-700">R$ 0,00</span>
+        </div>
+      </div>
+
+      <button onclick="checkoutCartViaWhatsApp()" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition-transform active:scale-[0.98]">
+        <i data-lucide="message-circle" class="w-5 h-5 text-emerald-200"></i>
+        <span>Enviar Sacola pelo WhatsApp</span>
+      </button>
+
+      <p class="text-[10px] text-center text-boutique-muted">
+        O provador DK responderá com fotos e disponibilidade imediata.
+      </p>
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICATION -->
+  <aside id="toast" aria-live="polite" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-boutique-dark text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-xs opacity-0 pointer-events-none transition-all duration-300 max-w-[90%] border border-dk-400/30">
+    <div class="w-6 h-6 rounded-lg bg-dk-400 text-dk-950 flex items-center justify-center font-bold">
+      <i data-lucide="check" class="w-3.5 h-3.5"></i>
+    </div>
+    <span id="toast-message" class="font-semibold">Item adicionado com sucesso!</span>
+  </aside>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT: LÓGICA E INTEGRAÇÃO WHATSAPP   -->
+  <!-- ========================================== -->
+  <script>
+    // 1. CONFIGURAÇÕES DA LOJA
+    const STORE_CONFIG = {
+      name: "Dondok Store (Use DK)",
+      whatsappNumber: "5515998765432", // DDD + Número oficial
+      address: "Av. Pereira Ignácio, 101 - Boituva/SP",
+      instagram: "https://www.instagram.com/dondokstore/",
+      instagramHandle: "@dondokstore"
+    };
+
+    // 2. CATÁLOGO COM TONS E PEÇAS ELEGANTES
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Vestido Midi Alfaiataria Jade DK",
+        category: "vestidos",
+        price: 189.90,
+        installments: "3x de R$ 63,30 sem juros",
+        image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop&q=80",
+        badge: "Destaque da Coleção",
+        availableSizes: ["P", "M", "G"],
+        selectedSize: "M",
+        description: "Crepe encorpado com caimento refinado, decote moderno e recorte exclusivo na barra."
+      },
+      {
+        id: 2,
+        name: "Conjunto Riviera Linho & Colete",
+        category: "conjuntos",
+        price: 249.90,
+        installments: "3x de R$ 83,30 sem juros",
+        image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&auto=format&fit=crop&q=80",
+        badge: "Mais Vendido",
+        availableSizes: ["P", "M", "G"],
+        selectedSize: "M",
+        description: "Colete alfaiataria com botões forrados e short de cintura alta em linho misto."
+      },
+      {
+        id: 3,
+        name: "Cropped Seda Drapê Tiffany",
+        category: "croppeds",
+        price: 129.90,
+        installments: "2x de R$ 64,95",
+        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80",
+        badge: "Cor da Marca",
+        availableSizes: ["P", "M"],
+        selectedSize: "P",
+        description: "Toque acetinado no tom clássico da DK com amarração anatômica e sofisticada."
+      },
+      {
+        id: 4,
+        name: "Calça Wide Leg Crepe Zoe",
+        category: "calcas",
+        price: 179.90,
+        installments: "3x de R$ 59,96 sem juros",
+        image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&auto=format&fit=crop&q=80",
+        badge: "Coringa Chic",
+        availableSizes: ["P", "M", "G", "GG"],
+        selectedSize: "M",
+        description: "Cintura alta com caimento impecável, bolsos faca e passantes largos para cinto."
+      },
+      {
+        id: 5,
+        name: "Vestido Curto Trançado Solarium",
+        category: "vestidos",
+        price: 159.90,
+        installments: "3x de R$ 53,30",
+        image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&auto=format&fit=crop&q=80",
+        badge: "Fresco & Leve",
+        availableSizes: ["P", "M", "G"],
+        selectedSize: "M",
+        description: "Tecido estruturado com textura sutil, decote suave e alças finas reguláveis."
+      },
+      {
+        id: 6,
+        name: "Conjunto Alfaiataria Blazer & Bermuda",
+        category: "conjuntos",
+        price: 279.90,
+        installments: "3x de R$ 93,30 sem juros",
+        image: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=800&auto=format&fit=crop&q=80",
+        badge: "Edição Especial",
+        availableSizes: ["M", "G"],
+        selectedSize: "M",
+        description: "Visual executivo despojado com blazer corte slim e bermuda estilo alfaiataria."
+      }
+    ];
+
+    let currentFilter = 'todos';
+    let searchQuery = '';
+    let cart = [];
+    let favorites = new Set();
+
+    function formatBRL(value) {
+      return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    // 3. RENDERIZAÇÃO DOS PRODUTOS
+    function renderProducts() {
+      const grid = document.getElementById('product-grid');
+      const emptyState = document.getElementById('empty-state');
+      const countEl = document.getElementById('product-count');
+
+      const filtered = PRODUCTS.filter(prod => {
+        const matchesCategory = currentFilter === 'todos' || prod.category === currentFilter;
+        const matchesSearch = prod.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              prod.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      countEl.textContent = `${filtered.length} ${filtered.length === 1 ? 'peça encontrada' : 'peças disponíveis'}`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = filtered.map(product => {
+        const isFav = favorites.has(product.id);
+        
+        // Seletor de tamanhos
+        const sizeButtons = product.availableSizes.map(size => {
+          const isSelected = product.selectedSize === size;
+          return `
+            <button 
+              type="button" 
+              onclick="selectProductSize(${product.id}, '${size}')"
+              class="w-7 h-7 rounded-lg text-[11px] font-bold transition-all ${
+                isSelected 
+                  ? 'bg-dk-400 text-dk-950 font-extrabold shadow-sm ring-2 ring-dk-400 ring-offset-1' 
+                  : 'bg-dk-50 text-boutique-charcoal border border-dk-100 hover:bg-dk-100'
+              }"
+            >
+              ${size}
+            </button>
+          `;
+        }).join('');
+
+        return `
+          <article class="bg-white rounded-3xl overflow-hidden border border-dk-100 shadow-dk-card hover:shadow-dk-glow transition-all duration-300 flex flex-col group">
+            
+            <!-- Imagem e Badges -->
+            <div class="relative overflow-hidden aspect-[4/5] bg-dk-50">
+              <img 
+                src="${product.image}" 
+                alt="${product.name}" 
+                loading="lazy" 
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              >
+              
+              <!-- Badge Temático DK -->
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase bg-white/95 backdrop-blur-md text-dk-800 shadow-sm border border-dk-100 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-dk-400"></span>
+                ${product.badge}
+              </span>
+
+              <!-- Botão Favorito -->
+              <button 
+                onclick="toggleFavorite(${product.id})" 
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center text-boutique-dark hover:text-rose-500 transition-colors shadow-sm"
+                title="Favoritar"
+              >
+                <i data-lucide="heart" class="w-4 h-4 ${isFav ? 'fill-rose-500 text-rose-500' : ''}"></i>
+              </button>
+            </div>
+
+            <!-- Informações -->
+            <div class="p-4 flex-1 flex flex-col justify-between space-y-3.5">
+              <div>
+                <h3 class="font-brand font-bold text-sm text-boutique-dark line-clamp-1 group-hover:text-dk-700 transition-colors">
+                  ${product.name}
+                </h3>
+                <p class="text-[11px] text-boutique-muted line-clamp-2 mt-0.5 leading-relaxed">
+                  ${product.description}
+                </p>
+
+                <!-- Preço e Parcelamento -->
+                <div class="mt-2.5 flex items-baseline gap-2">
+                  <span class="text-base font-extrabold text-boutique-dark">
+                    ${formatBRL(product.price)}
+                  </span>
+                  <span class="text-[10px] text-dk-700 font-bold bg-dk-50 px-1.5 py-0.5 rounded-md">
+                    ${product.installments}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Seletor de Tamanhos -->
+              <div class="pt-2 border-t border-dk-50 space-y-1.5">
+                <div class="flex items-center justify-between text-[11px]">
+                  <span class="text-boutique-muted">Tamanho selecionado:</span>
+                  <span class="font-extrabold text-dk-900 bg-dk-100 px-2 py-0.5 rounded-md text-[10px]">
+                    Tam ${product.selectedSize}
+                  </span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  ${sizeButtons}
+                </div>
+              </div>
+
+              <!-- Ações no Tema Use DK -->
+              <div class="space-y-2 pt-1">
+                
+                <!-- Botão Principal: Quero este no WhatsApp -->
+                <button 
+                  onclick="buyDirectOnWhatsApp(${product.id})" 
+                  class="w-full py-2.5 px-3 rounded-xl bg-dk-400 hover:bg-dk-300 text-dk-950 font-bold text-xs flex items-center justify-center gap-2 shadow-dk-glow transition-all active:scale-[0.98]"
+                >
+                  <i data-lucide="message-circle" class="w-4 h-4 text-dk-950"></i>
+                  <span>Quero este no WhatsApp</span>
+                </button>
+
+                <!-- Botão Secundário: Adicionar à Sacola -->
+                <button 
+                  onclick="addToCart(${product.id})" 
+                  class="w-full py-2 px-3 rounded-xl bg-white hover:bg-dk-50 text-boutique-muted hover:text-dk-800 font-semibold text-[11px] flex items-center justify-center gap-1.5 transition-colors border border-dk-200"
+                >
+                  <i data-lucide="plus" class="w-3.5 h-3.5 text-dk-600"></i>
+                  <span>Adicionar à Sacola</span>
+                </button>
+
+              </div>
+
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // 4. FILTROS E BUSCA
+    function filterCategory(category) {
+      currentFilter = category;
+      
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.classList.add('bg-dk-400', 'text-dk-950', 'brand-glow-active');
+          btn.classList.remove('bg-white', 'text-boutique-charcoal', 'border-dk-200');
+        } else {
+          btn.classList.remove('bg-dk-400', 'text-dk-950', 'brand-glow-active');
+          btn.classList.add('bg-white', 'text-boutique-charcoal', 'border-dk-200');
+        }
+      });
+
+      renderProducts();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.trim();
+      const clearBtn = document.getElementById('clear-search');
+      if (searchQuery.length > 0) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
+      renderProducts();
+    }
+
+    function clearSearch() {
+      document.getElementById('search-input').value = '';
+      searchQuery = '';
+      document.getElementById('clear-search').classList.add('hidden');
+      renderProducts();
+    }
+
+    function selectProductSize(productId, size) {
+      const prod = PRODUCTS.find(p => p.id === productId);
+      if (prod) {
+        prod.selectedSize = size;
+        renderProducts();
+      }
+    }
+
+    function toggleFavorite(productId) {
+      if (favorites.has(productId)) {
+        favorites.delete(productId);
+        showToast('Peça removida dos seus favoritos');
+      } else {
+        favorites.add(productId);
+        showToast('Peça favoritada no Provador DK! ❤️');
+      }
+      renderProducts();
+    }
+
+    function scrollToProducts() {
+      document.getElementById('categories-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 5. ENVIO DIRETO DE 1 CLIQUE NO WHATSAPP
+    function buyDirectOnWhatsApp(productId) {
+      const prod = PRODUCTS.find(p => p.id === productId);
+      if (!prod) return;
+
+      const size = prod.selectedSize || 'M';
+      const formattedPrice = formatBRL(prod.price);
+
+      // Mensagem solicitada no projeto com a identidade Use DK:
+      const message = `Olá! Vim pelo catálogo digital e tenho interesse na peça: *${prod.name}*, Tamanho: *${size}*, Preço: *${formattedPrice}*. Ainda tem disponível?`;
+      
+      const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      showToast(`Abrindo WhatsApp da loja com ${prod.name}!`);
+    }
+
+    function openConsultoraWhatsApp(customMsg) {
+      const msg = customMsg || `Olá, equipe Use DK! Vim pelo catálogo digital e gostaria de falar com uma consultora sobre os looks da coleção.`;
+      const url = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+
+    // 6. SACOLA / CARRINHO FLUTUANTE
+    function addToCart(productId) {
+      const prod = PRODUCTS.find(p => p.id === productId);
+      if (!prod) return;
+
+      const cartItemId = `${prod.id}-${prod.selectedSize}-${Date.now()}`;
+      cart.push({
+        cartItemId: cartItemId,
+        id: prod.id,
+        name: prod.name,
+        price: prod.price,
+        size: prod.selectedSize,
+        image: prod.image
+      });
+
+      updateCartUI();
+      showToast(`${prod.name} (Tam: ${prod.selectedSize}) foi para a sacola!`);
+    }
+
+    function removeFromCart(cartItemId) {
+      cart = cart.filter(item => item.cartItemId !== cartItemId);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const count = cart.length;
+      const badgeCount = document.getElementById('cart-badge-count');
+      const bottomCartBadge = document.getElementById('bottom-cart-badge');
+      const bottomCartTotal = document.getElementById('bottom-cart-total');
+      const container = document.getElementById('cart-items-container');
+      const emptyMsg = document.getElementById('cart-empty-msg');
+      const footer = document.getElementById('cart-footer');
+      const subtotalEl = document.getElementById('drawer-subtotal');
+      const totalEl = document.getElementById('drawer-total');
+
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+
+      if (count > 0) {
+        badgeCount.textContent = count;
+        badgeCount.classList.remove('scale-0');
+        badgeCount.classList.add('scale-100');
+
+        bottomCartBadge.textContent = count;
+        bottomCartBadge.classList.remove('hidden');
+      } else {
+        badgeCount.classList.remove('scale-100');
+        badgeCount.classList.add('scale-0');
+        bottomCartBadge.classList.add('hidden');
+      }
+
+      bottomCartTotal.textContent = formatBRL(total);
+      subtotalEl.textContent = formatBRL(total);
+      totalEl.textContent = formatBRL(total);
+
+      if (count === 0) {
+        container.innerHTML = '';
+        emptyMsg.classList.remove('hidden');
+        footer.classList.add('hidden');
+      } else {
+        emptyMsg.classList.add('hidden');
+        footer.classList.remove('hidden');
+
+        container.innerHTML = cart.map(item => `
+          <div class="flex items-center gap-3 py-3">
+            <img src="${item.image}" alt="${item.name}" class="w-14 h-16 object-cover rounded-2xl border border-dk-100 flex-shrink-0">
+            <div class="flex-1 min-w-0">
+              <h4 class="font-brand font-bold text-xs text-boutique-dark truncate">${item.name}</h4>
+              <p class="text-[11px] text-boutique-muted">Tamanho: <span class="font-bold text-dk-800 bg-dk-50 px-1.5 py-0.5 rounded">${item.size}</span></p>
+              <p class="text-xs font-extrabold text-dk-700 mt-1">${formatBRL(item.price)}</p>
+            </div>
+            <button onclick="removeFromCart('${item.cartItemId}')" class="p-2 text-gray-400 hover:text-rose-500 transition-colors" title="Remover item">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        `).join('');
+
+        lucide.createIcons();
+      }
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-drawer-overlay');
+
+      if (open) {
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    // 7. ENVIO DE PEDIDO CONSOLIDADO NO WHATSAPP
+    function checkoutCartViaWhatsApp() {
+      if (cart.length === 0) return;
+
+      const total = cart.reduce((acc, item) => acc + item.price, 0);
+      const itemsList = cart.map(item => `• *${item.name}* | Tam: *${item.size}* | ${formatBRL(item.price)}`).join('\n');
+
+      const message = 
+`Olá, equipe Dondok Store (Use DK)! ✨
+Vim pelo Catálogo Digital de Bolso e montei minha sacola de looks:
+
+${itemsList}
+
+*Valor Total Estimado: ${formatBRL(total)}*
+
+Gostaria de verificar a disponibilidade dessas peças no provador para entrega/retirada! 🌸`;
+
+      const whatsappUrl = `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      toggleCartDrawer(false);
+    }
+
+    // 8. TOAST NOTIFICATION
+    let toastTimeout;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+
+      toastMsg.textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-2');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-2');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2600);
+    }
+
+    // 9. INICIALIZAÇÃO
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCartUI();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
